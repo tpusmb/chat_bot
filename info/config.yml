@@ -13,7 +13,7 @@ pipeline:
   name: DucklingHTTPExtractor
   url: http://localhost:8000
 policies:
-- epochs: 100
+- epochs: 200
   max_history: 6
   name: KerasPolicy
 - max_history: 6

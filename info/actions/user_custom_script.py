@@ -7,7 +7,7 @@ import os
 
 # Absolute path to the folder location of this python file
 FOLDER_ABSOLUTE_PATH = os.path.normpath(os.path.dirname(os.path.abspath(__file__)))
-JSON_DB_PATH = "db.json"
+JSON_DB_PATH = "session.json"
 
 def save_user(dispatcher, tracker: Tracker, domain):
     """
@@ -22,7 +22,7 @@ def save_user(dispatcher, tracker: Tracker, domain):
     """
     full_json = {}
     try:
-        with open(SESSION_FILE, 'r', encoding='utf-8') as f:
+        with open(JSON_DB_PATH, 'r', encoding='utf-8') as f:
             full_json = json.load(f)
     except FileNotFoundError:
         pass
@@ -32,8 +32,8 @@ def save_user(dispatcher, tracker: Tracker, domain):
     user_info["user_email"] = tracker.slots["user_email"]
     full_json[tracker.sender_id] = user_info
 
-    with open(SESSION_FILE, 'w', encoding='utf-8') as f:
+    with open(JSON_DB_PATH, 'w', encoding='utf-8') as f:
         json.dump(full_json, f)
 
-    dispatcher.utter_message("{} votre email {} a été rajouter !".format(tracker.slots["username"],
-                                                                         tracker.slots["email"]))
+    dispatcher.utter_message("{} votre email {} a été rajouter !".format(tracker.slots["user_name"],
+                                                                         tracker.slots["user_email"]))

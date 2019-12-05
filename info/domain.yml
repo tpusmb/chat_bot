@@ -1,31 +1,14 @@
-actions:
-- if_condition
-- utter_crous_12
-- utter_intent_redirection_welcome
-- utter_welcome_1
-- utter_welcome_10
-- slot_reset
-- typing_sleep
-- utter_ask_user_name
-- utter_default
-- utter_welcome_9
-- utter_welcome_3
-- api_call
-- utter_welcome_4
-- utter_ask_user_email
-- utter_welcome_2
-- utter_welcome_8
-- session_loader
-- utter_ask_user_surname
-- utter_welcome_11
-- utter_crous_13
-- custom_script
-forms:
-- form_welcome_0
 intents:
 - start
 - welcome
 - crous
+- out_of_scope
+- ask_is_bot
+- affirm
+- deny
+- apl
+entities:
+- number
 slots:
   session_type:
     type: categorical
@@ -33,13 +16,10 @@ slots:
     - user_know
     - new_user
   user_email:
-    auto_fill: true
     type: unfeaturized
   user_name:
-    auto_fill: true
     type: unfeaturized
   user_surname:
-    auto_fill: true
     type: unfeaturized
 templates:
   utter_ask_user_email:
@@ -78,3 +58,27 @@ templates:
   - text: Super ! {user_name}
   utter_welcome_9:
   - text: How can i help you ? Do you want to have an APL ?
+actions:
+- if_condition
+- utter_crous_12
+- utter_intent_redirection_welcome
+- utter_welcome_1
+- utter_welcome_10
+- slot_reset
+- typing_sleep
+- utter_ask_user_name
+- utter_default
+- utter_welcome_9
+- utter_welcome_3
+- api_call
+- utter_welcome_4
+- utter_ask_user_email
+- utter_welcome_2
+- utter_welcome_8
+- session_loader
+- utter_ask_user_surname
+- utter_welcome_11
+- utter_crous_13
+- custom_script
+forms:
+- form_welcome_0
