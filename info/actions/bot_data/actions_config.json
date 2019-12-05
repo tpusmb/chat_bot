@@ -1,0 +1,18 @@
+{
+  "session_loader": {
+    "start": [
+      {
+        "type": "session_loader"
+      }
+    ]
+  },
+  "custom_script": {
+    "welcome": [
+      {
+        "type": "custom_script",
+        "function_name": "save_user",
+        "output_var_name": null
+      }
+    ]
+  }
+}
