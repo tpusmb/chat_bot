@@ -1,0 +1,25 @@
+{
+  "session_loader": {
+    "start": [
+      {
+        "type": "session_loader"
+      }
+    ]
+  },
+  "custom_script": {
+    "crous_get_files": [
+      {
+        "type": "custom_script",
+        "function_name": "get_user_guarantor",
+        "output_var_name": null
+      }
+    ],
+    "crous_eligible": [
+      {
+        "type": "custom_script",
+        "function_name": "is_user_eligible",
+        "output_var_name": null
+      }
+    ]
+  }
+}

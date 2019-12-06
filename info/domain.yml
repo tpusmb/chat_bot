@@ -30,10 +30,12 @@ templates:
   - text: Please give me your surname
   utter_crous_12:
   - custom:
-      new_quest: crous_quest
+      type: new
+      quest: crous_quest
   utter_crous_13:
   - custom:
-      new_quest: apl_quest
+      type: new
+      quest: apl_quest
   utter_default:
   - text: Sorry i dont understand !
   - text: Can you reapte pleas

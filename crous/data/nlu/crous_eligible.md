@@ -1,0 +1,16 @@
+## intent: crous_eligible
+- I want to have an CROUS
+- I have questions about CROUS
+- I have questions about CROUS please
+- I am looking for the CROUS
+- I need informations on the french CROUS
+- Do you know about CROUS ?
+- Am I eligible for the CROUS ?
+- How can I now if I'm eligible for the CROUS accommodation ?
+- Can I benefit from the CROUS accommodation ?
+- Can I live in the CROUS for this year ?
+- I search for room
+- room pls
+- room
+- i want a room
+- need a room

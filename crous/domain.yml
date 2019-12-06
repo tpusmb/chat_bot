@@ -1,0 +1,94 @@
+intents:
+- start
+- welcome
+- crous_get_files
+- crous_eligible
+- crous_vouch
+- out_of_scope
+slots:
+  annual_income:
+    type: unfeaturized
+  birth_city:
+    type: unfeaturized
+  guarantor_name:
+    type: unfeaturized
+  session_type:
+    type: categorical
+    values:
+    - user_know
+    - new_user
+  univ_city:
+    type: unfeaturized
+  user_email:
+    type: unfeaturized
+  user_name:
+    type: unfeaturized
+  user_surname:
+    type: unfeaturized
+templates:
+  utter_ask_annual_income:
+  - text: Please give me your annual income (in €)
+  utter_ask_birth_city:
+  - text: To see if you're eligible to the CROUS, first give me your parents' city of residence
+  utter_ask_guarantor_name:
+  - text: Can you tell me the name of your guarantor ?
+  utter_ask_univ_city:
+  - text: Please give me the city of your school
+  utter_crous_get_files_4:
+  - text: 'Super ! {user_name}. '
+  utter_crous_get_files_6:
+  - text: Ok, your guarantor is {guarantor_name}
+  utter_crous_get_files_7:
+  - text: Thanks, I have all the documents I need, I'll recontact you when the CROUS
+      have accepted your demand
+  utter_default:
+  - text: Sorry i dont understand !
+  - text: Can you repeat pleas
+  utter_intent_redirection_welcome:
+  - buttons:
+    - payload: /welcome
+      title: welcome
+    text: ‎‎
+  utter_welcome_1:
+  - text: Hello ! {user_name} I'm the bot of the CROUS
+  utter_welcome_2:
+  - text: How can I help you ?
+  utter_welcome_3:
+  - text: Mmm to have a better experience please go to see the Info NPC
+  quest_rib_redirection:
+    - custom:
+        type: new
+        quest: apl_quest
+  quest_crous_don:
+    - custom:
+        type: done
+        quest: crous
+  quest_crous_fail:
+    - custom:
+        type: done
+        quest: crous
+actions:
+- utter_ask_univ_city
+- utter_crous_get_files_7
+- utter_crous_get_files_4
+- utter_intent_redirection_welcome
+- utter_default
+- custom_script
+- if_condition
+- utter_welcome_3
+- utter_ask_guarantor_name
+- utter_crous_get_files_6
+- utter_welcome_1
+- slot_reset
+- api_call
+- session_loader
+- typing_sleep
+- utter_welcome_2
+- utter_ask_annual_income
+- utter_ask_birth_city
+- quest_rib_redirection
+- quest_crous_don
+- quest_crous_fail
+forms:
+- form_crous_get_files_0
+- form_crous_eligible_1

@@ -1,0 +1,26 @@
+language: en
+pipeline:
+- name: WhitespaceTokenizer
+- name: CRFEntityExtractor
+- name: EntitySynonymMapper
+- name: CountVectorsFeaturizer
+  token_pattern: (?u)\b\w+\b
+- name: EmbeddingIntentClassifier
+- dimensions:
+  - url
+  - number
+  - email
+  name: DucklingHTTPExtractor
+  url: http://localhost:8000
+policies:
+- epochs: 100
+  max_history: 6
+  name: KerasPolicy
+- max_history: 6
+  name: AugmentedMemoizationPolicy
+- core_threshold: 0.4
+  fallback_action_name: action_default_fallback
+  name: FallbackPolicy
+  nlu_threshold: 0.4
+- name: FormPolicy
+- name: MappingPolicy
