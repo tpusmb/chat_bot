@@ -14,6 +14,8 @@ from rasa_sdk import Action, Tracker
 from rasa_sdk.events import SlotSet
 from rasa_sdk.executor import CollectingDispatcher
 
+import urllib.request
+
 from utils import *
 from .const import *
 
@@ -321,3 +323,57 @@ class TypingSleep(Action):
 
         typing_dic = get_action_json(tracker, self.name(), current_intent, nb_call)
         time.sleep(int(typing_dic["time"]))
+
+
+class ChitChat(Action):
+    """
+    Sleep to simulate typing type
+    """
+
+    def name(self):
+        return "chit_chat"
+
+    @staticmethod
+    def http_json_request(json_data, url, method="POST"):
+        """
+        Function to make http json request
+        :param json_data: (dict) json to send
+        :param url: (string) url to send the json
+        :param method: (string) method of the request (POST, PUT, ...)
+        :return: (dic) Answer of the request in json format
+        """
+        try:
+            req = urllib.request.Request(url, method=method)
+            # Add the json header
+            req.add_header('Content-Type', 'application/json; charset=utf-8')
+            # Encode the json data
+            json_string_encode = json.dumps(json_data).encode("utf-8")
+            req.add_header('Content-Length', len(json_string_encode))
+            # Send the request
+            response = urllib.request.urlopen(req, json_string_encode)
+            # Get the json response
+            data = response.read()
+            # Get the encoding
+            encoding = response.info().get_content_charset('utf-8')
+            return json.loads(data.decode(encoding))
+        except Exception as e:
+            error_msg = "Error in the http request {}: {}".format(url, e)
+            PYTHON_LOGGER.error(error_msg)
+            return None
+
+    def run(self, dispatcher, tracker, domain):
+        """
+        Main method to tun the action
+        :param dispatcher: (CollectingDispatcher) The dispatcher which is used to send messages back to the user.
+            Use dipatcher.utter_message() or any other rasa_sdk.executor.CollectingDispatcher method.
+        :param tracker: (Tracker) The state tracker for the current user. You can access slot values using tracker.
+            get_slot(slot_name), the most recent user message is tracker.
+            latest_message.text and any other rasa_sdk.Tracker property.
+        :param domain: (Dict[Text, Any]) – the bot’s domain
+        :return: (List[Dict[Text, Any]]) All the action that the bot need to do
+        """
+        answer = self.http_json_request({"user_id": tracker.sender_id, "msg": tracker.latest_message["text"]},
+                                        "http://localhost:8081/open_bot/interact")
+        if answer is not None:
+            dispatcher.utter_message(answer["result"])
+        return []

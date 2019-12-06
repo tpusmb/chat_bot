@@ -97,3 +97,7 @@
 - Why don’t you answer?
 - But you're an english site :(
 - can you help me to build a bot
+- do you like pasta
+- i love dogs
+- my mother his cool
+- blablabla

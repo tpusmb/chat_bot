@@ -29,7 +29,7 @@ templates:
   utter_ask_user_surname:
   - text: Please give me your surname
   utter_crous_12:
-  - text: "<new>"
+  - text: <new>
   utter_crous_13:
   - custom:
       type: new
@@ -80,5 +80,6 @@ actions:
 - utter_welcome_11
 - utter_crous_13
 - custom_script
+- chit_chat
 forms:
 - form_welcome_0

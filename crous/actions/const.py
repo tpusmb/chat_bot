@@ -42,7 +42,7 @@ CUSTOM_SCRIPT_FILE_NAME = "user_custom_script"
 PROJECT_CONFIG_FILE_NAME = "project.json"
 
 # TODO tempt const to test
-SESSION_FILE = "../session.json"
+SESSION_FILE = os.path.join(FOLDER_ABSOLUTE_PATH, "..", "..", "session.json")
 
 # _________________/TEMPLATES NAMES\______________________
 # All templates name
