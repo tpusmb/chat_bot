@@ -29,9 +29,7 @@ templates:
   utter_ask_user_surname:
   - text: Please give me your surname
   utter_crous_12:
-  - custom:
-      type: new
-      quest: crous_quest
+  - text: "<new>"
   utter_crous_13:
   - custom:
       type: new
@@ -51,7 +49,7 @@ templates:
   utter_welcome_11:
   - text: I'm a very intelient bot you can ask me enything !!!!
   utter_welcome_2:
-  - text: How can i help you ? Do you want to have an APL ?
+  - text: How can i help you ?
   utter_welcome_3:
   - text: Search for an accommodation at the CROUS.
   utter_welcome_4:

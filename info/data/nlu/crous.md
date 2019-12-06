@@ -8,3 +8,5 @@
 - crous
 - need crous
 - the crous
+- accommodation at the CROUS
+- accommodation

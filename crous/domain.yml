@@ -56,17 +56,11 @@ templates:
   utter_welcome_3:
   - text: Mmm to have a better experience please go to see the Info NPC
   quest_rib_redirection:
-    - custom:
-        type: new
-        quest: apl_quest
+    - text: "<new-rib>"
   quest_crous_don:
-    - custom:
-        type: done
-        quest: crous
+    - text: "<done>"
   quest_crous_fail:
-    - custom:
-        type: done
-        quest: crous
+    - text: "<fail>"
 actions:
 - utter_ask_univ_city
 - utter_crous_get_files_7
