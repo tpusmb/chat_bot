@@ -5,3 +5,6 @@
 - I am looking for the CROUS
 - I need informations on the french CROUS
 - Do you know about CROUS ?
+- crous
+- need crous
+- the crous

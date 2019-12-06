@@ -7,7 +7,8 @@ import os
 
 # Absolute path to the folder location of this python file
 FOLDER_ABSOLUTE_PATH = os.path.normpath(os.path.dirname(os.path.abspath(__file__)))
-JSON_DB_PATH = "session.json"
+JSON_DB_PATH = "../session.json"
+
 
 def save_user(dispatcher, tracker: Tracker, domain):
     """
